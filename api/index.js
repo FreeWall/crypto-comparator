@@ -1,8 +1,10 @@
 const express = require('express');
 const app = express();
 
+const pair = ['BTC', 'USDT'];
+
 function coinbase() {
-  const data = fetch('https://api.coinbase.com/v2/prices/BTC-USDT/buy');
+  const data = fetch(`https://api.coinbase.com/v2/prices/${pair[0]}-${pair[1]}/buy`);
   return data
     .then((response) => response.json())
     .then((json) => json.data.amount)
@@ -13,7 +15,7 @@ function coinbase() {
 }
 
 function binance() {
-  const data = fetch('https://api.binance.com/api/v3/ticker/price?symbol=BTCUSDT');
+  const data = fetch(`https://api4.binance.com/api/v3/ticker/price?symbol=${pair[0]}${pair[1]}`);
   return data
     .then((response) => response.json())
     .then((json) => json.price)
@@ -24,7 +26,7 @@ function binance() {
 }
 
 function kraken() {
-  const data = fetch('https://api.kraken.com/0/public/Ticker?pair=BTCUSDT');
+  const data = fetch(`https://api.kraken.com/0/public/Ticker?pair=${pair[0]}${pair[1]}`);
   return data
     .then((response) => response.json())
     .then((json) => json.result.XBTUSDT.c[0])
