@@ -1,0 +1,11 @@
+{
+  "tailwindCSS.experimental.classRegex": [
+    "@tw\\s\\*\/\\s+[\"'`]([^\"'`]*)",
+    ["cn\\(([^)]*)\\)", "[\"'`]([^\"'`]*)[\"'`]"]
+  ],
+  "eslint.validate": ["typescript"],
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "always"
+  },
+  "typescript.tsdk": "node_modules/typescript/lib"
+}
